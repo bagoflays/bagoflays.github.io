@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+  #fullscreen-btn {
+    display: block;
+    margin: 10px;
+  }
+</style>
+<link rel="icon" href="../../favicon.png" type="image/x-icon">
+<link rel="shortcut icon" href="../../favicon.png" type="image/x-icon">
+<title>Twester Chase | BagOfLays Games</title>
+<link rel="stylesheet" type="text/css" href="../../style.css">
+</head>
+<body>
+
+<a href="https://bagoflays.github.io/">
+    <img src="../../favicon.png" alt="Favicon of the website." width="150" height="150">
+</a>
+<p>This may take a while to load the game. Wait a little.</p>
+<iframe id="my-iframe "src="https://funhtml5games.com?embed=flappy" style="width:800px;height:520px;border:none;" frameborder="0" scrolling="no"></iframe>
+
+<button id="fullscreen-btn">Fullscreen</button>
+
+<script>
+  const iframe = document.getElementById("my-iframe");
+  const fullscreenBtn = document.getElementById("fullscreen-btn");
+
+  fullscreenBtn.addEventListener("click", () => {
+    if (iframe.requestFullscreen) {
+      iframe.requestFullscreen();
+    } else if (iframe.mozRequestFullScreen) {
+      iframe.mozRequestFullScreen();
+    } else if (iframe.webkitRequestFullscreen) {
+      iframe.webkitRequestFullscreen();
+    } else if (iframe.msRequestFullscreen) {
+      iframe.msRequestFullscreen();
+    }
+  });
+
+  iframe.addEventListener("fullscreenchange", () => {
+    if (document.fullscreenElement || document.mozFullScreenElement || document.webkitFullscreenElement || document.msFullscreenElement) {
+      fullscreenBtn.style.display = "none";
+    } else {
+      fullscreenBtn.style.display = "block";
+    }
+  });
+</script>
+
+</body>
+</html>

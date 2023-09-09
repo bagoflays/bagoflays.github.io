@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Chasing Game</title>
+    <style>
+        canvas {
+            background-image: url('grass.png'); /* Optional background image */
+            background-size: cover;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="gameCanvas" width="800" height="500"></canvas>
+    
+    <script>
+        const canvas = document.getElementById("gameCanvas");
+        const ctx = canvas.getContext("2d");
+
+        const playerImage = new Image();
+        playerImage.src = 'dogy.png';
+
+        const enemyImage = new Image();
+        enemyImage.src = 'nesquikdog.png';
+
+
+        const LogoImage = new Image();
+        LogoImage.src = 'bolgames.png';
+
+        ctx.font = "30px Arial";
+        ctx.fillStyle = "black";
+        const player = {
+            x: 50,
+            y: 50,
+            speed: 3,
+            width: 60,
+            height: 60,
+        };
+
+        const enemy = {
+            x: 50,
+            y: 375,
+            speedX: 4,
+            speedY: 4,
+            width: 100,
+            height: 60,
+        };
+
+        // Add event listeners to handle keyboard input
+        const keys = {};
+        document.addEventListener('keydown', (event) => {
+            keys[event.key] = true;
+        });
+
+        document.addEventListener('keyup', (event) => {
+            keys[event.key] = false;
+        });
+
+        function handlePlayerMovement() {
+            if (keys['w']) {
+                player.y -= player.speed;
+            }
+            if (keys['a']) {
+                player.x -= player.speed;
+            }
+            if (keys['s']) {
+                player.y += player.speed;
+            }
+            if (keys['d']) {
+                player.x += player.speed;
+            }
+
+            // Boundary checks to prevent the player from going outside the canvas
+            if (player.x < 0) {
+                player.x = 0;
+            }
+            if (player.x + player.width > canvas.width) {
+                player.x = canvas.width - player.width;
+            }
+            if (player.y < 0) {
+                player.y = 0;
+            }
+            if (player.y + player.height > canvas.height) {
+                player.y = canvas.height - player.height;
+            }
+        }
+
+        function moveEnemy() {
+            enemy.x += enemy.speedX;
+            enemy.y += enemy.speedY;
+
+            // Check collision with canvas boundaries
+            if (enemy.x < 0 || enemy.x + enemy.width > canvas.width) {
+                enemy.speedX *= -1; // Reverse horizontal direction
+            }
+            if (enemy.y < 0 || enemy.y + enemy.height > canvas.height) {
+                enemy.speedY *= -1; // Reverse vertical direction
+            }
+        }
+
+        function checkCollision() {
+            if (
+                player.x < enemy.x + enemy.width &&
+                player.x + player.width > enemy.x &&
+                player.y < enemy.y + enemy.height &&
+                player.y + player.height > enemy.y
+            ) {
+                alert("You win!");
+                resetGame();
+            }
+        }
+
+        function resetGame() {
+            player.x = 50;
+            player.y = 50;
+            enemy.x = 50;
+            enemy.y = 375;
+        }
+
+        function gameLoop() {
+            requestAnimationFrame(gameLoop);
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            handlePlayerMovement();
+            moveEnemy();
+            checkCollision();
+            ctx.drawImage(playerImage, player.x, player.y, player.width, player.height);
+            ctx.drawImage(enemyImage, enemy.x, enemy.y, enemy.width, enemy.height);
+            ctx.drawImage(LogoImage, 700, 0, 100, 100);
+            ctx.fillText("Made for BagOfLays Games", 315, 50);
+        }
+
+        gameLoop();
+    </script>
+</body>
+</html>

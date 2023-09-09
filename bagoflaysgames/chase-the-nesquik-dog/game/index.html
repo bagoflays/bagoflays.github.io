@@ -12,7 +12,10 @@
 </head>
 <body>
     <canvas id="gameCanvas" width="800" height="500"></canvas>
-    
+    <audio autoplay loop controls="false">
+     <source src="music.mp3" type="audio/mpeg">
+     Your browser does not support the audio element.
+    </audio>
     <script>
         const canvas = document.getElementById("gameCanvas");
         const ctx = canvas.getContext("2d");
@@ -26,7 +29,7 @@
 
         const LogoImage = new Image();
         LogoImage.src = 'bolgames.png';
-
+        
         ctx.font = "30px Arial";
         ctx.fillStyle = "black";
         const player = {

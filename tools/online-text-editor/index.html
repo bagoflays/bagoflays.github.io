@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Textarea Example</title>
+</head>
+<body>
+    <textarea id="codeInput" rows="4" cols="50">Add stuff here</textarea>
+    <p>File name:</p>
+    <textarea id="filename" rows="4" cols="50">This will be used when it gets saved</textarea>
+    <br>
+    <br>
+    <button onclick="saveTextAsFile()">Download as TXT</button>   
+    <button onclick="saveTextAsHTML()">Download as HTML</button>
+    <button onclick="saveTextAsPY()">Download as Python</button>
+    <p id="result"></p>
+
+    <script>
+        function saveTextAsFile() {
+            var userInput = document.getElementById("codeInput").value;
+            var fnInput = document.getElementById("filename").value;
+            
+            // Create a Blob object containing the text
+            var blob = new Blob([userInput], { type: "text/plain" });
+
+            // Create an anchor element to trigger the download
+            var a = document.createElement("a");
+            a.style.display = "none";
+            document.body.appendChild(a);
+
+            // Set the anchor's href attribute to the Blob object
+            a.href = window.URL.createObjectURL(blob);
+
+            // Set the file name
+            a.download = fnInput + ".txt";
+
+            // Trigger a click event on the anchor element to start the download
+            a.click();
+
+            // Clean up
+            document.body.removeChild(a);
+        }
+
+        function saveTextAsHTML() {
+            var userInput = document.getElementById("codeInput").value;
+            var fnInput = document.getElementById("filename").value;
+            
+            // Create a Blob object containing the text
+            var blob = new Blob([userInput], { type: "text/plain" });
+
+            // Create an anchor element to trigger the download
+            var a = document.createElement("a");
+            a.style.display = "none";
+            document.body.appendChild(a);
+
+            // Set the anchor's href attribute to the Blob object
+            a.href = window.URL.createObjectURL(blob);
+
+            // Set the file name
+            a.download = fnInput + ".html";
+
+            // Trigger a click event on the anchor element to start the download
+            a.click();
+
+            // Clean up
+            document.body.removeChild(a);
+        }
+
+        function saveTextAsPY() {
+            var userInput = document.getElementById("codeInput").value;
+            var fnInput = document.getElementById("filename").value;
+            
+            // Create a Blob object containing the text
+            var blob = new Blob([userInput], { type: "text/plain" });
+
+            // Create an anchor element to trigger the download
+            var a = document.createElement("a");
+            a.style.display = "none";
+            document.body.appendChild(a);
+
+            // Set the anchor's href attribute to the Blob object
+            a.href = window.URL.createObjectURL(blob);
+
+            // Set the file name
+            a.download = fnInput + ".py";
+
+            // Trigger a click event on the anchor element to start the download
+            a.click();
+
+            // Clean up
+            document.body.removeChild(a);
+        }
+    </script>
+</body>
+</html>

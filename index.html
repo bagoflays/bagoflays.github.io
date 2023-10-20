@@ -17,21 +17,21 @@
   <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
   <h1>Note from creator of the website "bagoflays": Have fun guys.</h1>
   <p>This is a website called BagOfLays Games where there are free online games to play! Enjoy these games!</p>
-  <button onclick="aboutblank()">Turn on Educational Mode</button>  
+  <button onclick="aboutblank()">Turn on Educational Mode (disguise to hide this site)</button>  
   <script>
-    function aboutblank() {
+    function aboutblank() 
       var url = window.location;
-      blank = window.open("about:blank");
-      blank.document.body.style.margin = '0';
-      blank.document.body.style.height = '100vh';
-      var iframe = blank.createElement("iframe")
+      win = window.open();
+      win.document.body.style.margin = '0';
+      win.document.body.style.height = '100vh';
+      var iframe = win.document.createElement('iframe');
       iframe.style.border = 'none';
       iframe.style.width = '100%';
       iframe.style.height = '100%';
       iframe.style.margin = '0';
       iframe.src = url;
-      blank.document.body.appendChild(iframe);
-      window.location.replace("https://flip.com/");
+      win.document.body.appendChild(iframe);
+      window.location.replace("https://ixl.com");
     }
   </script>
   <h1>Contribute:</h1>

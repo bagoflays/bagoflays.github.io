@@ -1,6 +1,7 @@
 body {
   background-image: url('website.png');
   background-repeat: no-repeat;
+  background-size: auto;
   background-attachment: fixed;
   font-family: "Lucida Console", "Courier New", monospace;
   color: white;

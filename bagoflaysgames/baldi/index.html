@@ -27,29 +27,6 @@
 <p>This may take a while to load the game. Wait a little.</p>
 <iframe id="my-iframe" src="https://igroutka.ru/loader/game/26471/" style="width:1080px;height:660px;display: block; margin: 0 auto"></iframe>
 <br>
-  const iframe = document.getElementById("my-iframe");
-  const fullscreenBtn = document.getElementById("fullscreen-btn");
-
-  fullscreenBtn.addEventListener("click", () => {
-    if (iframe.requestFullscreen) {
-      iframe.requestFullscreen();
-    } else if (iframe.mozRequestFullScreen) {
-      iframe.mozRequestFullScreen();
-    } else if (iframe.webkitRequestFullscreen) {
-      iframe.webkitRequestFullscreen();
-    } else if (iframe.msRequestFullscreen) {
-      iframe.msRequestFullscreen();
-    }
-  });
-
-  iframe.addEventListener("fullscreenchange", () => {
-    if (document.fullscreenElement || document.mozFullScreenElement || document.webkitFullscreenElement || document.msFullscreenElement) {
-      fullscreenBtn.style.display = "none";
-    } else {
-      fullscreenBtn.style.display = "block";
-    }
-  });
-</script>
 </body>
 </html>
  

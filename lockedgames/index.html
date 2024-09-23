@@ -38,9 +38,22 @@
 <br>
 <textarea id="password" rows="4" cols="50"></textarea>
 <br>
-<button>Login to Locked Games</button>
-<a href="https://direct-link.net/1234853/bagoflays-games-code"target="blank"><button>Get the Code from Linkvertise</button></a>
+<button id="login" onclick="detectPassword()">Login to Locked Games</button>
+<a href="https://direct-link.net/1234853/bagoflays-games-code" target="blank" id="link"><button>Get the Code from Linkvertise</button></a>
+<br>
+<p id="game">Test example. In development</p>
+<script>
+document.getElementById('game').style.display = "none";
+function detectPassword() {
+const value = document.getElementById('password').value;
+if (value == "9121locked"){
+alert("Correct! You may now get your games.");
+document.getElementById('password').style.display = "none";
+document.getElementById('login').style.display = "none";
+document.getElementById('link').style.display = "none";
+document.getElementById('game').style.display = "block";
+}
+}
 </script>
 </body>
 </html>
- 

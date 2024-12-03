@@ -2,10 +2,13 @@
 <head>
     <title>Lays Webhooker for Discord</title>
 </head>
-<h1>Lays Webhooker for Discord</h1>
+<h1 id="stupidtitle">Lays Webhooker for Discord</h1>
 <button id="button">Speak!</button>
 
 <script>
+if (navigator.userAgent.mobile == true){
+   document.getElementById("stupidtitle").innerHTML = "Lays Webhooker for Discord for Mobile"
+}
 const button = document.getElementById('button')
 button.onclick = function(){
 const url = prompt('add a webhook url')

@@ -6,7 +6,7 @@
 <button id="button">Speak!</button>
 
 <script>
-if (navigator.userAgent.includes("Android")){
+if (/android|iphone|ipad/i.test(navigator.userAgent.toLowerCase()){
    document.getElementById("stupidtitle").innerText = "Lays Webhooker for Discord for Mobile"
 }
 const button = document.getElementById('button')

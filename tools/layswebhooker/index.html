@@ -9,6 +9,9 @@
 if (/android|iphone|ipad/i.test(navigator.userAgent.toLowerCase()){
    document.getElementById("stupidtitle").innerText = "Lays Webhooker for Discord for Mobile"
 }
+if (/windows/i.test(navigator.userAgent.toLowerCase()){
+    document.getElementById("stupidtitle").innerText = "Lays Webhooker for Discord for Mobile"
+}
 const button = document.getElementById('button')
 button.onclick = function(){
 const url = prompt('add a webhook url')

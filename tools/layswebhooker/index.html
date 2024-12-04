@@ -8,12 +8,12 @@
 
 <script>
 console.log(navigator.userAgent.toLowerCase())
-ffmob.display.style = none;
+ffmob.style.display = none;
 if (/android|iphone|ipad/i.test(navigator.userAgent.toLowerCase())) {
    document.getElementById("stupidtitle").innerText = "Lays Webhooker for Discord for Mobile"
 if (/firefox/i.test(navigator.userAgent.toLowerCase())) {
   const text = document.getElementById("ffmob")
-  ffmob.display.style = block;
+  ffmob.style.display = block;
 }
 } else if (/windows/i.test(navigator.userAgent.toLowerCase())) {
     document.getElementById("stupidtitle").innerText = "Lays Webhooker for Discord for Windows"

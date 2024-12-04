@@ -3,9 +3,9 @@
     <title>Lays Webhooker for Discord</title>
 </head>
 <h1 id="stupidtitle">Lays Webhooker for Discord</h1>
-<button id="button">Speak!</button>
+<button id="button" onclick="jsSend()">Speak!</button>
 
-<script>
+<script src="script.js">
 console.log(navigator.userAgent.toLowerCase())
 if (/android|iphone|ipad/i.test(navigator.userAgent.toLowerCase())) {
    document.getElementById("stupidtitle").innerText = "Lays Webhooker for Discord for Mobile"
@@ -15,12 +15,6 @@ if (/android|iphone|ipad/i.test(navigator.userAgent.toLowerCase())) {
     document.getElementById("stupidtitle").innerText = "Lays Webhooker for Discord for MacOS"
 } else if (/linux/i.test(navigator.userAgent.toLowerCase())) {
    document.getElementById("stupidtitle").innerText = "Lays Webhooker for Discord for Linux/Mobile Desktop Mode"
-}
-const button = document.getElementById('button')
-button.onclick = function(){
-const url = prompt('add a webhook url')
-const message = prompt('add a message')
-fetch(url,{method: 'POST',headers:{'Content-Type': 'application/json'},body: JSON.stringify({content: message})})
 }
 </script>
 </html>

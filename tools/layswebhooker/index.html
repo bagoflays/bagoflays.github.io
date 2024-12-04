@@ -4,16 +4,11 @@
 </head>
 <h1 id="stupidtitle">Lays Webhooker for Discord</h1>
 <button id="button">Speak!</button>
-<p id="ffmob">WARNING:We detect you are on Firefox Mobile. Do not disable any pop ups from us.</p>
 
 <script>
 console.log(navigator.userAgent.toLowerCase())
-document.getElementById("ffmob").style.display = none;
 if (/android|iphone|ipad/i.test(navigator.userAgent.toLowerCase())) {
    document.getElementById("stupidtitle").innerText = "Lays Webhooker for Discord for Mobile"
-   if (/firefox/i.test(navigator.userAgent.toLowerCase())) {
-      document.getElementById("ffmob").style.display = block;
-   }
 }
 } else if (/windows/i.test(navigator.userAgent.toLowerCase())) {
     document.getElementById("stupidtitle").innerText = "Lays Webhooker for Discord for Windows"

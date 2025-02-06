@@ -1,13 +1,18 @@
 body {
-  background-image: url('website.png');
+  background-color: #1a1a1a;
   background-repeat: no-repeat;
   background-size: cover;
   background-attachment: fixed;
-  font-family: "Lucida Console", "Courier New", monospace;
+  font-family: "Ubuntu";
   color: white;
+  text-align: center;
 }
 
 .game-button {
   border: 2px solid black;
   padding: 10px 20px;
+  border-radius: 25px;
+  background-color: #000000;
+  color: #ffffff;
+  border-color: #ffffff;
 }
